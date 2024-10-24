@@ -30,3 +30,9 @@ jobs:
       
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       run: php artisan test
+
+    - name: Build docker nginx
+      run: docker build -f ./deploy-helper/nginx/Dockerfile.nginx -t nginx .
+      
+    - name: Build docker php
+      run:  docker build -f Dockerfile -t php-fpm .
